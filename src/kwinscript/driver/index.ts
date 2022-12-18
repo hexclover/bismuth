@@ -382,6 +382,10 @@ export class DriverImpl implements Driver {
     this.connect(client.shadeChanged, () => {
       this.controller.onWindowShadeChanged(window);
     });
+
+    this.connect(client.fullScreenChanged, () => {
+      this.controller.onWindowFullScreenChanged(window, client.fullScreen);
+    });
   }
 }
 

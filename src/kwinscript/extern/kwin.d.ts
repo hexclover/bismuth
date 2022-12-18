@@ -279,6 +279,11 @@ declare namespace KWin {
     desktopChanged: QSignal;
 
     /**
+     * @see fullScreen
+     */
+    fullScreenChanged: QSignal;
+
+    /**
      * @see move
      */
     moveResizedChanged: QSignal;

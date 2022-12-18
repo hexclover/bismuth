@@ -110,6 +110,13 @@ export interface Controller {
    */
   onWindowMaximizeChanged(window: EngineWindow, maximized: boolean): void;
 
+  /**
+   * React to window full screen state change
+   * @param window the window whose full screen state changed
+   * @param maximized new full screen state
+   */
+  onWindowFullScreenChanged(window: EngineWindow, fullScreen: boolean): void;
+
   // TODO: add docs
   onWindowChanged(window: EngineWindow | null, comment?: string): void;
 
@@ -337,6 +344,11 @@ export class ControllerImpl implements Controller {
     _window: EngineWindow,
     _maximized: boolean
   ): void {
+    this.engine.arrange();
+  }
+
+  public onWindowFullScreenChanged(window: EngineWindow, fullScreen: boolean) {
+    this.log.log(["onWindowFullScreenChanged", { window, fullScreen }]);
     this.engine.arrange();
   }
 
